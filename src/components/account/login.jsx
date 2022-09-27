@@ -52,7 +52,7 @@ const Login = () => {
 
     const imageURL = 'https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png';
     
-    const {account, toggleAccount} = useState('login');
+    const [account, toggleAccount] = useState('login');
 
     const toggleSignup = () => {
         account === 'signup'? toggleAccount('login') : toggleAccount('signup');
