@@ -86,9 +86,9 @@ const Login = () => {
                         </Wrapper>
                     :
                         <Wrapper>
-                            <TextField variant='standard' onChange={(e) => onInputChange(e)}name = 'name' label="Name"/>
-                            <TextField variant='standard' onChange={(e) => onInputChange(e)}name = 'username' label="Username"/>
-                            <TextField variant='standard' onChange={(e) => onInputChange(e)}name = 'password' label="Password"/>
+                            <TextField variant='standard' onChange={(e) => onInputChange(e)} name = 'name' label="Name"/>
+                            <TextField variant='standard' onChange={(e) => onInputChange(e)} name = 'username' label="Username"/>
+                            <TextField variant='standard' onChange={(e) => onInputChange(e)} name = 'password' label="Password"/>
 
                             <SignupButton>Sign Up</SignupButton>
                             <Text style={{textAlign: 'center'}}>OR</Text>
