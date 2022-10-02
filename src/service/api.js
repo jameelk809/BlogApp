@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_NOTIFICATION_MESSAGES } from '../constants/config';
+import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config';
 
 const API_URL = 'http://localhost:8000';
 
@@ -87,3 +87,31 @@ const processError = (error) =>{
 
 
 const API = {};
+
+for (const [key, value] of Object.entries(SERVICE_URLS)) {
+    API[key] = (body, showUploadProgress, showDownloadProgress) =>
+        axiosInstance({
+            method: value.method,
+            url: value.url,
+            data: body,
+            responseType: value.responseType,
+            // headers: {
+            //     authorization: getAccessToken(),
+            // },
+            // TYPE: getType(value, body),
+            onUploadProgress: function(progressEvent) {
+                if (showUploadProgress) {
+                    let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                    showUploadProgress(percentCompleted);
+                }
+            },
+            onDownloadProgress: function(progressEvent) {
+                if (showDownloadProgress) {
+                    let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                    showDownloadProgress(percentCompleted);
+                }
+            }
+        });
+}
+
+export { API };
