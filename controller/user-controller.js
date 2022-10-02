@@ -1,5 +1,10 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
 import User from "../model/user.js";
+
+dotenv.config();
 
 export const signupUser = async (request, response) => {
     try {
@@ -13,4 +18,9 @@ export const signupUser = async (request, response) => {
     } catch (error) {
         return response.status(500).json({ msg: 'Error while Signup' })
     }
+}
+
+
+export const loginUser = async (request, response) => {
+
 }
