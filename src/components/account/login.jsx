@@ -100,11 +100,11 @@ const Login = () => {
                 {
                     account === 'login' ?
                         <Wrapper>
-                            <TextField variant='standard' label="Username"/>
+                            <TextField variant='standard' onChange={(e) => onValueChange(e)} label="Username"/>
                             <TextField variant='standard' label="Password"/>
 
                             { error && <Error>{error}</Error> }
-                            
+
                             <LoginButton variant='contained'>Login</LoginButton>
                             <Text style={{textAlign: 'center'}}>OR</Text>
                             <SignupButton onClick={() => toggleSignup()}>Sign Up</SignupButton>
