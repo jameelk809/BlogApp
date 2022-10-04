@@ -8,12 +8,12 @@ import Home from './components/home/Home';
 
 function App() {
   return (
-    <div style={{ marginTop: 64}}>
-      <DataProvider>
+    <DataProvider>
+      <div style={{ marginTop: 64 }}>
         <Login />
         <Home />
-      </DataProvider>
-    </div>
+      </div>
+    </DataProvider>
   );
 }
 
