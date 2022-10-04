@@ -5,6 +5,8 @@ import { Box, TextField, Button, styled, Typography, svgIconClasses } from '@mui
 import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
 
+import { useNavigate } from 'react-router-dom';
+
 const Component = styled(Box)`
     width: 400px;
     margin: auto;
@@ -79,6 +81,7 @@ const Login = () => {
     const [error, setError] = useState('');
 
     const { setAccount } = useContext(DataContext);
+    const navigate = useNavigate();
 
     const toggleSignup = () => {
         account === 'signup'? toggleAccount('login') : toggleAccount('signup');
@@ -112,7 +115,9 @@ const Login = () => {
             sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
             sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
 
-            setAccount({username: response.data.username, name: response.data.name});
+            setAccount({username: response.data.username, name: response.data.name})
+
+            navigate('/');
         } else {
             setError('Something went wrong. Please try again later.');
         }
